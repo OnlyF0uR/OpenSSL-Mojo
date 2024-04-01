@@ -4,6 +4,30 @@ alias c_char = UInt8
 alias c_char_p = Pointer[c_char]
 alias c_int = Int32
 
+fn sha1(input: String) raises -> String:
+  var param_a = to_char_ptr(input)
+  var param_b = len(input)
+
+  var result = external_call["sha1", Pointer[UInt8], Pointer[UInt8], Int32](param_a, param_b)
+  var s_result = c_charptr_to_string(result, 40)
+
+  if s_result == "":
+    raise "Error while hashing"
+  else:
+    return s_result
+
+fn sha1_file(file_path: String) raises -> String:
+  # TODO: Check if file actually exists instead of just letting it fail
+  var param_a = to_char_ptr(file_path)
+
+  var result = external_call["sha1_file", Pointer[UInt8], Pointer[UInt8]](param_a)
+  var s_result = c_charptr_to_string(result, 40)
+
+  if s_result == "":
+    raise "Error while hashing"
+  else:
+    return s_result
+
 fn sha224(input: String) raises -> String:
   var param_a = to_char_ptr(input)
   var param_b = len(input)

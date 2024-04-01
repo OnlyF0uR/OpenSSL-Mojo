@@ -1,1 +1,1 @@
-from .functions import sha224, sha224_file, sha256, sha256_file, sha384, sha384_file, sha512, sha512_file
+from .functions import sha1, sha1_file, sha224, sha224_file, sha256, sha256_file, sha384, sha384_file, sha512, sha512_file

@@ -5,8 +5,14 @@ fn main():
   var data = "hello world"
 
   try:
+    # sha1
+    var hash = sha1(data)
+    print("sha1   text hash: ", hash)
+    hash = sha1_file("test.txt")
+    print("sha1   file hash: ", hash)
+
     # sha224
-    var hash = sha224(data)
+    hash = sha224(data)
     print("sha224 text hash: ", hash)
     hash = sha224_file("test.txt")
     print("sha224 file hash: ", hash)
