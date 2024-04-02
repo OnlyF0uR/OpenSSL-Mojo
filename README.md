@@ -1,6 +1,6 @@
 # OpenSSL-Mojo
 
-Simply OpenSSL bindings for Mojo
+Simple OpenSSL bindings for Mojo
 
 Currently only tested on Linux (WSL), macOS requires some minor changes (like the scripts).
 
